@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 
 import dayjs from "dayjs";
 
+import { lineTotalCalc } from "helpers/lineTotalCalc";
+
 import Footer from "./Footer";
 import Header from "./Header";
 import Table from "./Table";
@@ -59,7 +61,7 @@ const MultipleEntriesModal = ({
       setPageNumber(pageNumber + 1);
       const items = res.data.new_line_item_entries.map(item => ({
         ...item, checked: allCheckboxSelected,
-        lineTotal: ((Number(item.quantity) / 60 * Number(item.rate)).toFixed(2))
+        lineTotal: lineTotalCalc(item.quantity, item.rate)
       }));
       const mergedItems = [...items, ...lineItems];
       const sortedData = mergedItems.sort((item1, item2) => dayjs(item1.date).isAfter(dayjs(item2.date)) ? 1 : -1);
@@ -74,7 +76,7 @@ const MultipleEntriesModal = ({
       const items = res.data.new_line_item_entries.map(item => ({
         ...item,
         checked: allCheckboxSelected,
-        lineTotal: ((Number(item.quantity) / 60 * Number(item.rate)).toFixed(2))
+        lineTotal: lineTotalCalc(item.quantity, item.rate)
       }));
       const mergedItems = [...items, ...lineItems];
       const sortedData = mergedItems.sort((item1, item2) => dayjs(item1.date).isAfter(dayjs(item2.date)) ? 1 : -1);
