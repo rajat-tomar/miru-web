@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 
 import dayjs from "dayjs";
+import { useOutsideClick } from "helpers";
 
 import generateInvoice from "apis/generateInvoice";
-import useOutsideClick from "helpers/outsideClick";
 
 import NewLineItemTable from "./NewLineItemTable";
 

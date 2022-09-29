@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 
+import { cashFormatter, currencySymbol, minToHHMM } from "helpers";
 import {
   ArrowLeft,
   DotsThreeVertical,
@@ -16,9 +17,6 @@ import projectAPI from "apis/projects";
 import AmountBoxContainer from "common/AmountBox";
 import ChartBar from "common/ChartBar";
 import Table from "common/Table";
-import { cashFormatter } from "helpers/cashFormater";
-import { currencySymbol } from "helpers/currencySymbol";
-import { minutesToHHMM } from "helpers/hhmm-parser";
 import { sendGAPageView } from "utils/googleAnalytics";
 
 import EditMembersList from "./EditMembersList";
@@ -74,7 +72,7 @@ const ProjectDetails = () => {
         ),
         col3: (
           <div className="text-base text-miru-dark-purple-1000 text-right">
-            {minutesToHHMM(member.minutes)}
+            {minToHHMM(member.minutes)}
           </div>
         ),
         col4: (

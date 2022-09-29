@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import dayjs from "dayjs";
-
-import { lineTotalCalc } from "helpers/lineTotalCalc";
+import { lineTotalCalc } from "helpers";
 
 import Footer from "./Footer";
 import Header from "./Header";
